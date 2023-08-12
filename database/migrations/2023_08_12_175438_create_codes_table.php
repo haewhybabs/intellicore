@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('code')->unique();
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->boolean('is_allocated')->default(false);
+            $table->boolean('is_valid')->default(false);
             $table->timestamps();
         });
     }

@@ -1,10 +1,11 @@
 <?php
-namespace App\Repositories;
 
-interface CodeRepositoryInterface
+namespace App\Services;
+
+interface CodeServiceInterface
 {
     public function generateCode();
-    public function allocateCode($userId, $code);
+    public function allocateCode($userId);
     public function resetCode($code);
     public function findCodeByUserId($userId);
 }

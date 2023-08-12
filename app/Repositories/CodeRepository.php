@@ -20,18 +20,23 @@ class CodeRepository implements CodeRepositoryInterface
 
     public function allocateCode($userId, $code)
     {
-        Code::create([
+        return Code::create([
             'user_id' => $userId,
             'code' => $code,
-            'is_allocated' => true,
+            'is_valid' => true,
         ]);
     }
 
     public function resetCode($code)
     {
-        Code::where('code', $code)->update([
+        return Code::where('code', $code)->update([
             'user_id' => null,
-            'is_allocated' => false,
+            'is_valid' => false,
         ]);
+    }
+
+    public function findCodeByUserId($userId)
+    {
+        return Code::where('user_id',$userId)->first();
     }
 }

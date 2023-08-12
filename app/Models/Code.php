@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Code extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'user_id',
+        'is_valid',
+        'code',
+    ];
 }
