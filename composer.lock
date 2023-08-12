@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aa322c53454393ed775cfe4807d54a50",
+    "content-hash": "443424fc3a5c116f974ff04fed0366e9",
     "packages": [
         {
             "name": "brick/math",
@@ -973,6 +973,45 @@
                 }
             ],
             "time": "2021-10-07T12:57:01+00:00"
+        },
+        {
+            "name": "intellicore/acme-secure-code",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/haewhybabs/acmesecurecode.git",
+                "reference": "b4419e43ee9ef54a039a2bf7aaff8eb1cfb2d441"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/haewhybabs/acmesecurecode/zipball/b4419e43ee9ef54a039a2bf7aaff8eb1cfb2d441",
+                "reference": "b4419e43ee9ef54a039a2bf7aaff8eb1cfb2d441",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "laravel-package",
+            "autoload": {
+                "psr-4": {
+                    "AcmeSecureCode\\": "src/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Ayobami Babalola",
+                    "email": "babalolaisaac@gmail.com"
+                }
+            ],
+            "description": "generated codes for the door access system",
+            "support": {
+                "source": "https://github.com/haewhybabs/acmesecurecode/tree/1.0.2",
+                "issues": "https://github.com/haewhybabs/acmesecurecode/issues"
+            },
+            "time": "2023-08-12T17:27:23+00:00"
         },
         {
             "name": "laravel/framework",
