@@ -35,6 +35,11 @@ Follow these steps to set up Intellicore:
     ```sh
     php artisan serve
     ```
+7. Test
+
+    ```sh
+    php artisan test
+    ```
 
 ## Postman Documentation
 
