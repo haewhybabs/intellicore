@@ -16,7 +16,7 @@ Follow these steps to set up Intellicore:
     composer install
     ```
 
-3. Set up the environment by updating the database configuration.
+3. Set up the .env by updating the database configuration.
 
 4. Generate the application key:
 
