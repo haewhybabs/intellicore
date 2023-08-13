@@ -1,17 +1,43 @@
-# Intellicore
+# Intellicore Documentation
 
-## Documentaion
+## Installation
 
-### Installation
-* git clone https://github.com/haewhybabs/intellicore.git
-* composer install (to install the code-generating library implemented and other required library)
-* set up the env, just update the database.
-* php artisan key:generate
-* php artisan migrate --seed (to set up the database, included factory users for testing)
-* php artisan serve (to start the server)
+Follow these steps to set up Intellicore:
 
+1. Clone the repository:
 
-***postman link:https://documenter.getpostman.com/view/5742682/2s9Xy5MAmQ***
+    ```sh
+    git clone https://github.com/haewhybabs/intellicore.git
+    ```
 
+2. Install the required dependencies:
 
-**Author:: Ayobami Babalola**
+    ```sh
+    composer install
+    ```
+
+3. Set up the environment by updating the database configuration.
+
+4. Generate the application key:
+
+    ```sh
+    php artisan key:generate
+    ```
+
+5. Migrate the database and seed data (including factory users for testing):
+
+    ```sh
+    php artisan migrate --seed
+    ```
+
+6. Start the server:
+
+    ```sh
+    php artisan serve
+    ```
+
+## Postman Documentation
+
+For API documentation, refer to the [Postman Documentation](https://documenter.getpostman.com/view/5742682/2s9Xy5MAmQ).
+
+**Author: Ayobami Babalola**
