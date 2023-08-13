@@ -8,4 +8,5 @@ interface CodeServiceInterface
     public function allocateCode($userId);
     public function resetCode($code);
     public function findCodeByUserId($userId);
+    public function codeStatus($userId,$valid);
 }

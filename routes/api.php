@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CodeController;
 
 Route::post('/allocate-code', [CodeController::class, 'allocateCode']);
+Route::post('/allocate-code-randomly', [CodeController::class, 'allocateRandomCodes']);
+Route::put('/reset-code', [CodeController::class, 'resetCode']);
+Route::put('/code-status', [CodeController::class, 'codeStatus']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

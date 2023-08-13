@@ -27,11 +27,19 @@ class CodeRepository implements CodeRepositoryInterface
         ]);
     }
 
-    public function resetCode($code)
+    public function resetCode($userId)
     {
-        return Code::where('code', $code)->update([
-            'user_id' => null,
-            'is_valid' => false,
+        $newCode = $this->secureCodeGenerator->generateCode();
+        Code::where('user_id', $userId)->update([
+            'code'=>$newCode
+        ]);
+        return $newCode;
+    }
+
+
+    public function codeStatus($userId,$valid){
+        return Code::where('user_id', $userId)->update([
+            'is_valid'=>$valid
         ]);
     }
 

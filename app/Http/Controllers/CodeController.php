@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CodeResource;
+use App\Models\Code;
 use App\Models\User;
 use App\Services\CodeServiceInterface;
 use Illuminate\Http\Request;
@@ -22,7 +23,6 @@ class CodeController extends Controller
         $validate= $request->validate(['user_id'=>'required|numeric']);
         $userId = $request->input('user_id');
         $checkAllocation = $this->codeService->findCodeByUserId($userId);
-
         if($checkAllocation){
             return response()->json(['error' => 'User code has already been allocated'], 400);
         }
@@ -38,14 +38,12 @@ class CodeController extends Controller
         $randomUsers = User::inRandomOrder()->limit($numberOfUsers)->get();
 
         $allocatedCodes = [];
+        $allocatedUserIds = Code::pluck('user_id')->toArray();
 
         foreach ($randomUsers as $user) {
-            $checkAllocation = $this->codeService->findCodeByUserId($user->id);
-
-            if ($checkAllocation) {
+            if (in_array($user->id, $allocatedUserIds)) {
                 continue; // Skip already allocated users
             }
-
             $code = $this->codeService->allocateCode($user->id);
             $allocatedCodes[] = new CodeResource($code);
         }
@@ -55,8 +53,25 @@ class CodeController extends Controller
 
     public function resetCode(Request $request)
     {
-        $code = $request->input('code');
-        $this->codeService->resetCode($code);
+        $validate= $request->validate(['user_id'=>'required|numeric']);
+        $userId = $request->input('user_id');
+        $this->codeService->resetCode($userId);
+        $code = $this->codeService->findCodeByUserId($userId);
+
+        return new CodeResource($code);
+ 
+
+    }
+
+    public function codeStatus(Request $request){
+
+        $validate= $request->validate(['user_id'=>'required|numeric','valid'=>'required|boolean']);
+        $userId = $request->user_id;
+        $valid = $request->valid;
+        $this->codeService->codeStatus($userId,$valid);
+        $code = $this->codeService->findCodeByUserId($userId);
+        return new CodeResource($code);
+ 
     }
 }
 

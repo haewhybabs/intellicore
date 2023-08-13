@@ -25,13 +25,18 @@ class CodeService implements CodeServiceInterface
         return $allocate;
     }
 
-    public function resetCode($code)
+    public function resetCode($userId)
     {
-        $this->codeRepository->resetCode($code);
+        return $this->codeRepository->resetCode($userId);
+    }
+
+    public function codeStatus($userId,$valid){
+
+        return $this->codeRepository->codeStatus($userId,$valid);
     }
 
     public function findCodeByUserId($userId){
         
-        $this->codeRepository->findCodeByUserId($userId);
+        return $this->codeRepository->findCodeByUserId($userId);
     }
 }
